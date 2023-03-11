@@ -14,19 +14,13 @@ const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
 export default function App() {
   return (
     <Provider store={store}>
-      <Map />
+      <KeplerGl
+        id="map"
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+        width={window.innerWidth}
+        height={window.innerHeight}
+      />
     </Provider>
   );
 }
 
-function Map() {
-
-  return (
-    <KeplerGl
-      id="map"
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-      width={window.innerWidth}
-      height={window.innerHeight}
-    />
-  );
-}
